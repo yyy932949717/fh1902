@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.fh.shop.api.shop.mapper.IShopMapper">
+
+<update id="updateSale">
+  update t_shop set sales=sales-#{shopTotalCount} where id=#{shopId} and sales>=#{shopTotalCount}
+</update>
+
+  <select id="queryShopSales" resultType="com.fh.shop.api.shop.po.ShopPo">
+  select * from t_shop where sales &lt; 10
+  </select>
+
+
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.fh.shop.api.site.mapper.ISiteMapper">
+
+    <select id="findSite"   resultType="com.fh.shop.api.site.po.Site" parameterType="long">
+select t.id,t.addressee,t.detailed,t.phone,concat(a1.name,"-->",a2.name,"-->",a3.name)"site" from t_site t
+    left join t_area a1 on t.s1=a1.id
+    left join t_area a2 on t.s2=a2.id
+    left join t_area a3 on t.s3=a3.id
+    where vipId=#{vipId}
+</select>
+
+
+
+</mapper>
